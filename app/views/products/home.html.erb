@@ -1,3 +1,11 @@
 <h><%= @page_title %>
 
 
+<p>we are better than amazon! less items, higher prices, extra fee shipping!</p>
+
+<b><%= @products.each do |product| %>
+
+<%= product.name %>
+
+<%= end %>
+
