@@ -7,4 +7,13 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def ice
+  end
+
+  def longclaw
+  end
+
+  def needle
+  end
+  
 end

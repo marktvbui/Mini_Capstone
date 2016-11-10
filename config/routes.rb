@@ -3,4 +3,11 @@ Rails.application.routes.draw do
 
 get "/", to:"products#home"
 
+get "/ice", to:"products#ice"
+
+get "/longclaw", to:"products#longclaw"
+
+get "/needle", to:"products#needle"
+
+
 end

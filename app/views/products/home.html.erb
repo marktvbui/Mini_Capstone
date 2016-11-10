@@ -5,7 +5,9 @@
 
 <% @products.each do |product| %>
 
-  <b><%= product.name %></b>
+  <div><a href="/<%= product.name.downcase %>"><%= product.name %></a></div>
+  <div>$<%= product.price %></div>
+  <div><%= product.description %></div>
   <%= image_tag product.image %>
 
 <% end %>
