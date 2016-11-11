@@ -2,16 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$total-columns: 10;
-$column-width: 4em;
-$gutter-width: 1em;
-$grid-padding: 1em;
 
-
-.title {
+.page-header {
   background: url("http://www.by-the-sword.com/images/product/micro/GoT-9_3_.jpg");
   background-size: 80px 80px;
-  padding-top: 80px;
+  padding-top: 65px;
   text-align: center;
   color: #0099cc;
   font-size: 50px;

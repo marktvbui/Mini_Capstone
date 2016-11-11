@@ -1,14 +1,15 @@
-<h class="title"><%= @page_title %></h>
+<div class="page-header"><%= @page_title %></div>
 
 
 <p class="subtitle">Best place to find GoT replica weapons!</p>
 
 <% @products.each do |product| %>
-  <div class="col-md-4">
+  <div class="col-md-3">
+  <div class="jumbotron">
   <div class="name"><a href="/<%= product.name.downcase %>"><%= product.name %></a></div>
   <div class="price">$<%= product.price %></div>
   <image scr=<%= image_tag(product.image, :size => "250x450") %>></image>
   <div class="description"><%= product.description %></div>
-  <br>
+
 
 <% end %>
