@@ -9,8 +9,11 @@ $grid-padding: 1em;
 
 
 .title {
+  background: url("http://www.by-the-sword.com/images/product/micro/GoT-9_3_.jpg");
+  background-size: 80px 80px;
+  padding-top: 80px;
   text-align: center;
-  color: #6699ff;
+  color: #0099cc;
   font-size: 50px;
 }
 
@@ -32,13 +35,13 @@ $grid-padding: 1em;
 }
 
 .price {
-  color: #000066;
+  color: #0099cc;
   font-size: 30px;
   text-align: center;
 }
 
 .description {
-  color: #00ff00;
+  color: #0099cc;
   font-size: 30px;
   
 }
