@@ -7,8 +7,8 @@
   <div class="col-md-4">
   <div class="name"><a href="/<%= product.name.downcase %>"><%= product.name %></a></div>
   <div class="price">$<%= product.price %></div>
-  <div class="description"><%= product.description %></div>
   <image scr=<%= image_tag(product.image, :size => "250x450") %>></image>
+  <div class="description"><%= product.description %></div>
   <br>
 
 <% end %>

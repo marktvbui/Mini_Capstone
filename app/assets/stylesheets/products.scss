@@ -2,20 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$total-columns: 10;
+$column-width: 4em;
+$gutter-width: 1em;
+$grid-padding: 1em;
+
+
 .title {
+  text-align: center;
   color: #6699ff;
   font-size: 50px;
-  text-align: middle;
 }
 
 .subtitle {
+  background-color: black;
   color: #0099cc;
+  font-size: 45px;
+  text-align: center;
+  border-width:5px;  
+  border-style:groove;
+  border-color: #0099cc;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.name {
+  font-size: 30px;
+  text-align: center;
 }
 
 .price {
   color: #000066;
+  font-size: 30px;
+  text-align: center;
 }
 
 .description {
   color: #00ff00;
+  font-size: 30px;
+  
 }
+
+
+
+
