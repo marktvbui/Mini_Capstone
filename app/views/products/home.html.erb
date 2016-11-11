@@ -1,13 +1,14 @@
 <h class="title"><%= @page_title %></h>
 
 
-<p>we are better than amazon! less items, higher prices, extra fee shipping!</p>
+<p class="subtitle">Best place to find GoT replica weapons!</p>
 
 <% @products.each do |product| %>
-
-  <div><a href="/<%= product.name.downcase %>"><%= product.name %></a></div>
-  <div>$<%= product.price %></div>
-  <div><%= product.description %></div>
-  <%= image_tag product.image %>
+  <div class="col-md-4">
+  <div class="name"><a href="/<%= product.name.downcase %>"><%= product.name %></a></div>
+  <div class="price">$<%= product.price %></div>
+  <div class="description"><%= product.description %></div>
+  <image scr=<%= image_tag(product.image, :size => "250x450") %>></image>
+  <br>
 
 <% end %>

@@ -9,5 +9,11 @@ get "/longclaw", to:"products#longclaw"
 
 get "/needle", to:"products#needle"
 
+get "/dragonglass", to:"products#dragonglass"
+
+get "/hammer", to:"products#hammer"
+
+get "/arakh", to:"products#arakh"
+
 
 end
