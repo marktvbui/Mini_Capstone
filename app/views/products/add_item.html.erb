@@ -1,0 +1,28 @@
+<h1>Add new items here:</h1>
+<%= form_tag "/saved_item", method: :post do%>
+
+<div>
+<%= label_tag :item_name, "Item Name:" %>
+<%= text_field_tag :item_name %>
+</div>
+
+<div>
+<%= label_tag :item_price, "Item Price:" %>
+<%= text_field_tag :item_price %>
+</div>
+
+<div>
+<%= label_tag :image, "Image:" %>
+<%= text_field_tag :image %>
+</div>
+
+<div>
+<%= label_tag :description, "Description:" %>
+<%= text_field_tag :description %>
+</div>
+
+<div>
+<%= submit_tag "Add me" %>
+</div>
+
+<% end %>

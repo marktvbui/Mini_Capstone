@@ -1,15 +1,21 @@
 <div class="page-header"><%= @page_title %></div>
 
 
-<p class="subtitle">Best place to find GoT replica weapons!</p>
+<h1 class="subtitle">Best place to find GoT replica weapons!</h1>
+
+<div class="row"></div>
 
 <% @products.each do |product| %>
-  <div class="col-md-3">
-  <div class="jumbotron">
-  <div class="name"><a href="/<%= product.name.downcase %>"><%= product.name %></a></div>
-  <div class="price">$<%= product.price %></div>
-  <image scr=<%= image_tag(product.image, :size => "250x450") %>></image>
-  <div class="description"><%= product.description %></div>
 
+    <div class="col-md-4">
+        <div class="name"><a href="/<%= product.name.downcase %>"><%= product.name %></a></div>
+        <div class="price">$<%= product.price %></div>
+        <image scr=<%= image_tag(product.image, :size => "250x400") %>></image>
+          <div class="description"><%= product.description %></div>
+
+    </div>
+
+
+ 
 
 <% end %>

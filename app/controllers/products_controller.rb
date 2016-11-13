@@ -35,5 +35,18 @@ class ProductsController < ApplicationController
   def hammer
     @page_title = "Robert's War Hammer"
   end
+
+  def add_item
+  end
+
+  def saved_item
+  
+   @products = Product.new(name: params[:item_name], price: params[:item_price], image: params[:image], description: params[:description])
+
+    @products.save
+
+  end
+
+
   
 end
