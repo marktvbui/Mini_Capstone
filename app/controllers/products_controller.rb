@@ -36,6 +36,10 @@ class ProductsController < ApplicationController
     @page_title = "Robert's War Hammer"
   end
 
+  def hand
+    @page_title = "Jaime's Golden Hand"
+  end
+  
   def add_item
   end
 

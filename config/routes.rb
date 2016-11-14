@@ -15,6 +15,10 @@ get "/hammer", to:"products#hammer"
 
 get "/arakh", to:"products#arakh"
 
+get "/oathkeeper", to:"products#oathkeeper"
+
+get "/hand", to:"products#hand"
+
 get "/add_item", to:"products#add_item"
 post "/saved_item", to:"products#saved_item"
 
