@@ -3,24 +3,16 @@ Rails.application.routes.draw do
 
 get "/", to:"products#home"
 
-get "/ice", to:"products#ice"
+get "/products", to:"products#index"
 
-get "/longclaw", to:"products#longclaw"
+get "/products/new", to:"products#new"
+post "/products", to:"products#create"
 
-get "/needle", to:"products#needle"
+get "/products/:id/edit", to:"products#edit"
+patch "/products/:id", to:"products#update"
 
-get "/dragonglass", to:"products#dragonglass"
-
-get "/hammer", to:"products#hammer"
-
-get "/arakh", to:"products#arakh"
-
-get "/oathkeeper", to:"products#oathkeeper"
-
-get "/hand", to:"products#hand"
-
-get "/add_item", to:"products#add_item"
-post "/saved_item", to:"products#saved_item"
+get "/products/:id", to: "products#show"
 
 
 end
+

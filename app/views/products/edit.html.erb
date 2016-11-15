@@ -1,0 +1,28 @@
+<h1>Editing this item: <%= @product.name %></h1> 
+<%= form_tag "/products/#{@product.id}", method: :patch do%>
+
+<div>
+<%= label_tag :item_name, "Item Name:" %>
+<%= text_field_tag :item_name, @product.name %>
+</div>
+
+<div>
+<%= label_tag :item_price, "Item Price:" %>
+<%= text_field_tag :item_price, @product.price %>
+</div>
+
+<div>
+<%= label_tag :image, "Image:" %>
+<%= text_field_tag :image , @product.image %>
+</div>
+
+<div>
+<%= label_tag :description, "Description:" %>
+<%= text_field_tag :description, @product.description %>
+</div>
+
+<div>
+<%= submit_tag "Morph me" %>
+</div>
+
+<% end %>
