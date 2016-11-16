@@ -15,7 +15,6 @@
          <div class="name"><%= link_to product.name, "/products/#{product.id}" %></div>
 
         <div class="description"><%= product.description %></div>
-      <!--   <div class="name"><a href="/<%= product.name.downcase %>"><%= product.name %></a></div>  -->
         <div class="price">$<%= product.price %></div>
         <%= image_tag product.image, class: "img-class" %>
          

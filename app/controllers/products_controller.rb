@@ -17,6 +17,8 @@ class ProductsController < ApplicationController
 
     @products.save
 
+    redirect_to "/products/"
+
   end
 
   def index
@@ -36,8 +38,10 @@ class ProductsController < ApplicationController
   def update
     product = Product.find_by(id: params[:id])
     product.assign_attributes(name: params[:item_name], price: params[:item_price], image: params[:image], description: params[:description])
+    
     product.save
 
+    redirect_to "/products/"
   end
 
   def contact
@@ -46,6 +50,8 @@ class ProductsController < ApplicationController
   def destroy
     product = Product.find_by(id: params[:id])
     product.destroy
+
+    redirect_to "/products"
   end
 
   
