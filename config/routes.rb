@@ -13,6 +13,10 @@ patch "/products/:id", to:"products#update"
 
 get "/products/:id", to: "products#show"
 
+get "/contact", to: "products#contact"
+
+delete "/products/:id", to:"products#destroy"
+
 
 end
 

@@ -3,3 +3,10 @@
 <div class="name"><a href="/<%= @product.name.downcase %>"><%= @product.name %></a></div>  
 <%= image_tag @product.image, class: "img-class" %>
 
+<div>
+<%= link_to "Edit Product", "/products/#{@product.id}/edit" %>
+</div>
+
+<div>
+<%= link_to "Delete Product", "/products/#{@product.id}/destroy", method: :delete %>
+</div>
