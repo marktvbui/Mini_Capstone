@@ -3,6 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+.carousel_size {
+  display: block;
+  margin: auto;
+  max-height: 200px;
+  max-width: 500px;
+}
+
 .page-header {
   background: url("http://www.by-the-sword.com/images/product/micro/GoT-9_3_.jpg");
   background-size: 80px 80px;
@@ -10,6 +18,7 @@
   text-align: center;
   color: #0099cc;
   font-size: 50px;
+  margin-top: 20px;
 }
 
 body {
