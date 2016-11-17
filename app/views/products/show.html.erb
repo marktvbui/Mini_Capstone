@@ -7,6 +7,16 @@
 <%= link_to "Edit Product", "/products/#{@product.id}/edit" %>
 </div>
 
+<h3> Added: <%= @product.pretty_time %></h3>
+
 <div>
 <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete %>
 </div>
+
+
+<!-- makes a list from an array
+<ul>
+<% @list_of_ingredients.each do |xx| %>
+  <li><h3><%= xx %><h3></li>
+<% end %>
+</ul> -->
