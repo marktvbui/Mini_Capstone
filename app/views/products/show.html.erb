@@ -1,5 +1,17 @@
 <h1><%= @product.description %></h1>
-<h3><%= @product.price %></h3>
+
+<% if @product.sale_message == "Discount Item!" %>
+  <h1 class="color1">Discount Item!</h1>
+  <% else %>
+  <h1 class="color2">Sale Item!</h1>
+  <% end %>
+
+<!-- 
+<h1 class="sale_message"><%= @product.sale_message %></h1> -->
+
+<h3>Price: <%= @product.price %></h3>
+<h3>Taxes: <%= @product.tax.round(2) %></h3>
+<h3>Total: <%= @product.total %></h3>
 <div class="name"><a href="/<%= @product.name.downcase %>"><%= @product.name %></a></div>  
 <%= image_tag @product.image, class: "img-class" %>
 
@@ -14,9 +26,8 @@
 </div>
 
 
-<!-- makes a list from an array
-<ul>
-<% @list_of_ingredients.each do |xx| %>
-  <li><h3><%= xx %><h3></li>
+<% if something = true %>
+  <h1 class="green">This is true!</h1>
+<% else %>
+  <h1 class="red">This is true!</h1>
 <% end %>
-</ul> -->

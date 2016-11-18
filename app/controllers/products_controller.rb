@@ -29,7 +29,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by(id: params[:id])
-    @list_of_ingredients = @products.xx.split(", ")
   end
 
 
