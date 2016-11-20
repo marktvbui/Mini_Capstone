@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
 
   def create
   
-    @products = Product.new(name: params[:item_name], price: params[:item_price], image: params[:image], description: params[:description])
+    @products = Product.new(name: params[:item_name], price: params[:item_price], image: params[:image], description: params[:description], instock: params[:instock])
 
     @products.save
     flash[:success] = "Product has been created"
@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find_by(id: params[:id])
-    product.assign_attributes(name: params[:item_name], price: params[:item_price], image: params[:image], description: params[:description])
+    product.assign_attributes(name: params[:item_name], price: params[:item_price], image: params[:image], description: params[:description], instock: params[:instock])
   
     product.save
     flash[:success] = "Product has been updated"

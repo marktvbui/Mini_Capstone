@@ -16,6 +16,10 @@ get "/contact", to: "products#contact"
 
 delete "/products/:id", to:"products#destroy"
 
+get "/products/armors", to: "products#armors"
+get "/products/fanfare", to: "products#fanfare"
+get "/products/weapons", to: "products#weapons"
+
 
 end
 
