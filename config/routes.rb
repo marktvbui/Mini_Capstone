@@ -7,9 +7,9 @@ get "/products", to:"products#index"
 get "/products/new", to:"products#new"
 post "/products", to:"products#create"
 
-get "/products/armors", to: "products#armors"
+get "/products/armor", to: "products#armor"
 get "/products/fanfare", to: "products#fanfare"
-get "/products/weapons", to: "products#weapons"
+get "/products/weapon", to: "products#weapon"
 
 get "/products/:id/edit", to:"products#edit"
 patch "/products/:id", to:"products#update"
