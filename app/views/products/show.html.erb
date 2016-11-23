@@ -15,8 +15,9 @@
 <h3>In stock: <%= @product.instock %></h3>
 <h3>Supplier: <%= @product.supplier.name %></h3>
 <h3>Supplier: <%= "#{@product.supplier.name}" %></h3>
+
 <div class="name"><a href="/<%= @product.name.downcase %>"><%= @product.name %></a></div>  
-<%= image_tag @product.image, class: "img-class" %>
+<%= image_tag @product.images.first.url, class: "img-class" %>
 
 <div>
 <%= link_to "Edit Product", "/products/#{@product.id}/edit" %>
