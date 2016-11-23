@@ -13,6 +13,8 @@
 <h3>Taxes: <%= @product.tax.round(2) %></h3>
 <h3>Total: <%= @product.total %></h3>
 <h3>In stock: <%= @product.instock %></h3>
+<h3>Supplier: <%= @product.supplier.name %></h3>
+<h3>Supplier: <%= "#{@product.supplier.name}" %></h3>
 <div class="name"><a href="/<%= @product.name.downcase %>"><%= @product.name %></a></div>  
 <%= image_tag @product.image, class: "img-class" %>
 

@@ -20,6 +20,9 @@ get "/contact", to: "products#contact"
 
 delete "/products/:id", to:"products#destroy"
 
+get "/products/supplier", to:"products#supplier"
+
+
 
 
 

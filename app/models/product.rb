@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-
+  belongs_to :supplier
   
   def pretty_time
     return created_at.strftime("%A, %d %b %Y %l:%M %p")
@@ -21,6 +21,8 @@ class Product < ApplicationRecord
   def total
     return tax + price.to_f
   end
+
+
 
 
 

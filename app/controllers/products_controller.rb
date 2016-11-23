@@ -1,15 +1,15 @@
 class ProductsController < ApplicationController
 
   def index
-
+    
     @page_title = "Game of Thrones Weapons!"
-    @products = Product.all
+    sort_column = params[:sort]
+    @products = Product.all.order(sort_column)
 
   end
 
   
   def new
-    
   end
 
   def create
@@ -52,6 +52,17 @@ class ProductsController < ApplicationController
     flash[:danger] = "Product destroyed!"
     redirect_to "/products"
   end
+
+  # def search
+  #   @search_term = params[:search]
+  #   @products = Product.where("title LIKE ?", "#{@search_term}")
+  #   render :index
+  # end
+
+
+  def supplier
+  end
+
 
   
 end
