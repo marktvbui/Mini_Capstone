@@ -17,7 +17,11 @@
 <h3>Supplier: <%= "#{@product.supplier.name}" %></h3>
 
 <div class="name"><a href="/<%= @product.name.downcase %>"><%= @product.name %></a></div>  
-<%= image_tag @product.images.first.url, class: "img-class" %>
+
+<% @product.images.each do |image| %>
+
+<%= image_tag image.url, class: "img-class" %>
+<% end %>
 
 <div>
 <%= link_to "Edit Product", "/products/#{@product.id}/edit" %>
