@@ -1,0 +1,12 @@
+<%= form_tag "/products/:id/image", method: :post do %>
+  <div>
+  <%= label_tag :url %>
+  <%= text_field_tag :url %>
+  </div>
+
+  <div>
+  <%= label_tag :product %>
+  <%= collection_select :product, :product_id, Product.all, :id, :name %>
+  <%= submit_tag %>
+  </div>
+<% end %>

@@ -22,6 +22,11 @@ delete "/products/:id", to:"products#destroy"
 
 get "/products/supplier", to:"products#supplier"
 
+post "/search", to: "products#search"
+
+get "/products/:id/image/new", to:"images#new"
+post "/products/:id/image", to:"images#create"
+
 
 
 

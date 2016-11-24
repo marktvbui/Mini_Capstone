@@ -6,6 +6,16 @@ class ProductsController < ApplicationController
     sort_column = params[:sort]
     @products = Product.all.order(sort_column)
 
+
+    # session (hash), stores as a cookie
+      if session[:count] == nil
+        session[:count] = 1
+      else
+        session[:count] += 1
+      end
+
+      @session_counter = session[:count]
+
   end
 
   
@@ -14,7 +24,7 @@ class ProductsController < ApplicationController
 
   def create
   
-    @products = Product.new(name: params[:item_name], price: params[:item_price], image: params[:image], description: params[:description], instock: params[:instock], item_class: params[:item_class])
+    @products = Product.new(name: params[:item_name], price: params[:item_price], description: params[:description], instock: params[:instock], item_class: params[:item_class])
     @products.save
     flash[:success] = "Product has been created"
     redirect_to "/products/"
@@ -37,7 +47,7 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find_by(id: params[:id])
-    product.assign_attributes(name: params[:item_name], price: params[:item_price], image: params[:image], description: params[:description], instock: params[:instock], item_class: params[:item_class])
+    product.assign_attributes(name: params[:item_name], price: params[:item_price], description: params[:description], instock: params[:instock], item_class: params[:item_class])
     product.save
     flash[:success] = "Product has been updated"
     redirect_to "/products/"
@@ -53,11 +63,11 @@ class ProductsController < ApplicationController
     redirect_to "/products"
   end
 
-  # def search
-  #   @search_term = params[:search]
-  #   @products = Product.where("title LIKE ?", "#{@search_term}")
-  #   render :index
-  # end
+  def search
+    @search_term = params[:search]
+    @products = Product.where("name LIKE ?", "%#{@search_term}%")
+    render :index
+  end
 
 
   def supplier
