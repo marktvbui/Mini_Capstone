@@ -7,6 +7,6 @@
   <div>
   <%= label_tag :product %>
   <%= collection_select :product, :product_id, Product.all, :id, :name %>
-  <%= submit_tag %>
+  <%= submit_tag "Add URL to Product" %>
   </div>
 <% end %>
