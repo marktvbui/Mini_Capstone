@@ -1,21 +1,18 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    
     @page_title = "Game of Thrones Weapons!"
     sort_column = params[:sort]
     @products = Product.all.order(sort_column)
 
-
     # session (hash), stores as a cookie
-      if session[:count] == nil
-        session[:count] = 1
-      else
-        session[:count] += 1
-      end
-
-      @session_counter = session[:count]
-
+    if session[:count] == nil
+      session[:count] = 1
+    else
+      session[:count] += 1
+    end
+    @session_counter = session[:count]
   end
 
   
@@ -23,17 +20,11 @@ class ProductsController < ApplicationController
   end
 
   def create
-  
     @products = Product.new(name: params[:item_name], price: params[:item_price], description: params[:description], instock: params[:instock], item_class: params[:item_class])
     @products.save
     flash[:success] = "Product has been created"
     redirect_to "/products/"
 
-  end
-
-  def index
-    @page_title = "Our Weapons"
-    @products = Product.all
   end
 
   def show
@@ -73,8 +64,6 @@ class ProductsController < ApplicationController
   def supplier
   end
 
-
-  
 end
 
   

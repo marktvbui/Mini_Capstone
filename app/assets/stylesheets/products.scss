@@ -61,6 +61,7 @@ body {
 .name {
   font-size: 30px;
   text-align: center;
+  font-color: #0099cc;
 }
 
 .price {
@@ -100,7 +101,10 @@ img {
 
 }
   
-
+.well {
+  border: solid;
+  border-color: #0099cc;
+}
 
 
 
