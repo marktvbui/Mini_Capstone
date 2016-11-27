@@ -27,6 +27,9 @@ post "/search", to: "products#search"
 get "/products/:id/image/new", to:"images#new"
 post "/products/:id/image", to:"images#create"
 
+get "/signup", to: "users#new"
+post "/users", to: "users#create"
+
 
 
 
