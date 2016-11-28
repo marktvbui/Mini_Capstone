@@ -17,6 +17,8 @@ class ProductsController < ApplicationController
 
   
   def new
+    @products = Product.new(name: params[:item_name], price: params[:item_price], description: params[:description], instock: params[:instock], item_class: params[:item_class])
+    @products.save
   end
 
   def create
