@@ -64,6 +64,9 @@ class ProductsController < ApplicationController
   def supplier
   end
 
+  
+
+
 end
 
   
