@@ -1,1 +1,15 @@
-Armors page, under construction, please return soon
+<div class="row"></div>
+
+  <% if @products.item_class == 'armor' %>
+
+      <div class="col-md-4">
+          <div class="well">
+           <div class="name"><%= link_to product.name, "/products/#{product.id}/edit" %></div>
+          <div class="description"><%= product.description %></div>
+          <div class="price">$<%= product.price %></div>
+          <%= image_tag product.images.first.url, class: "img-class" %>      
+           <a href="/products/<%= product.id %>"> <img src="http://brandonmull.com/site/wp-content/uploads/2015/09/flaming-sword.png" class="img-responsive" alt="Responsive image"></a>
+           </div>
+      </div>
+  <% end %>
+</div>

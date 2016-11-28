@@ -3,13 +3,13 @@
 <%= form_tag "/products", method: :post do%>
 
 <div>
-<%= label_tag :item_name, "Item Name:" %>
-<%= text_field_tag :item_name %>
+<%= label_tag :name, "Item Name:" %>
+<%= text_field_tag :name %>
 </div>
 
 <div>
-<%= label_tag :item_price, "Item Price:" %>
-<%= text_field_tag :item_price %>
+<%= label_tag :price, "Item Price:" %>
+<%= text_field_tag :price %>
 </div>
 
 <div>
@@ -25,6 +25,11 @@
 <div>
 <%= label_tag :item_class, "Item Class" %>
 <%= text_field_tag :item_class %>
+</div>
+
+<div>
+<%= label_tag :supplier_id, "Supplier" %>
+<%= text_field_tag :supplier_id %>
 </div>
 
 <div>

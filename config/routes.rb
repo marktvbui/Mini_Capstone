@@ -30,9 +30,12 @@ post "/products/:id/image", to:"images#create"
 get "/signup", to: "users#new"
 post "/users", to: "users#create"
 
-get "login", to: "sessions#new"
-post "login", to: "sessions#create"
-get "logout", to: "sessions#destroy"
+get "/login", to: "sessions#new"
+post "/login", to: "sessions#create"
+get "/logout", to: "sessions#destroy"
+
+get "/orders/new", to: "orders#new"
+post "/orders", to: "orders#create"
 
 
 
