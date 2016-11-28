@@ -30,7 +30,6 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find_by(id: params[:id])
     session[:quantity] == params[:quantity]
-    @session_quantity = session[:quantity]
   end
 
 
@@ -40,7 +39,7 @@ class ProductsController < ApplicationController
 
   def update
     product = Product.find_by(id: params[:id])
-    product.assign_attributes(name: params[:name], price: params[:price], description: params[:description], instock: params[:instock], item_class: params[:item_class])
+    product.assign_attributes(name: params[:item_name], price: params[:item_price], description: params[:description], instock: params[:instock], item_class: params[:item_class])
     product.save
     flash[:success] = "Product has been updated"
     redirect_to "/products/"
@@ -68,8 +67,7 @@ class ProductsController < ApplicationController
 
   def armor
     @products = Product.all
-  end
-  
+  end  
 
 
 end
