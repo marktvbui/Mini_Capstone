@@ -21,7 +21,7 @@
     <div class="item">
       <img src=http://i.imgur.com/kMYNxbw.jpghttp://orig06.deviantart.net/61c6/f/2014/122/b/0/house_targaryen___game_of_thrones___1920x1080_hd_by_zeroxproject-d7gtc74.jpg" alt=":)">
     </div>
-  <!--   Stark sigil -->
+    <!--   Stark sigil -->
     <div class="item">
       <img src="http://wallpapercave.com/wp/LhI847L.jpg" alt=":)">
     </div>
@@ -56,34 +56,45 @@
 
 <h1 class="page-header"><%= @page_title %></h1>
 
-<center>
-<%= form_tag "/search", method: :post do %>
-  <%= label_tag :search %>
-  <%= text_field_tag :search %>
-  <%= submit_tag "Search" %>
-<% end %>
-</center>
+  <% Category.all.each do |category| %>
+    <%= link_to "Category: #{category.name}", "/products?category=#{category.name}" %>
+  <br>
 
-<div class="subtitle">Best place to find GoT replica weapons!</div>
 
-<%= link_to "Sort by Price", "/products?sort=price" %>
-<%= link_to "Sort by Name", "/products?sort=name" %>
 
-<div class="row"></div>
 
-<% @products.each do |product| %>
+  <% end %>
+  <%= link_to "Sort by Price", "/products?sort=price" %>
+  <br>
+  <%= link_to "Sort by Name", "/products?sort=name" %>
 
-    <div class="col-md-4">
-        <div class="well">
-         <div class="name"><%= link_to product.name, "/products/#{product.id}/edit" %></div>
-        <div class="description"><%= product.description %></div>
-        <div class="price">$<%= product.price %></div>
-        <%= image_tag product.images.first.url, class: "img-class" %>      
-         <a href="/products/<%= product.id %>"> <img src="http://brandonmull.com/site/wp-content/uploads/2015/09/flaming-sword.png" class="img-responsive" alt="Responsive image"></a>
-         </div>
+  
 
-    </div>
-<% end %>
+  <center>
+  <%= form_tag "/search", method: :post do %>
+    <%= label_tag :search %>
+    <%= text_field_tag :search %>
+    <%= submit_tag "Search" %>
+  <% end %>
+  </center>
+
+  <div class="subtitle">Best place to find GoT replica weapons!</div>
+
+  <div class="row"></div>
+
+  <% @products.each do |product| %>
+
+      <div class="col-md-4">
+          <div class="well">
+           <div class="name"><%= link_to product.name, "/products/#{product.id}/edit" %></div>
+          <div class="description"><%= product.description %></div>
+          <div class="price">$<%= product.price %></div>
+          <%= image_tag product.images.first.url, class: "img-class" %>      
+           <a href="/products/<%= product.id %>"> <img src="http://brandonmull.com/site/wp-content/uploads/2015/09/flaming-sword.png" class="img-responsive" alt="Responsive image"></a>
+           </div>
+
+      </div>
+  <% end %>
 <br>
 <br>
   <div>

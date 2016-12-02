@@ -1,8 +1,7 @@
 class Order < ApplicationRecord
-  has_many :products
-  belongs :user
-
-  def session_quantity
-    @session_quantity = session[:quantity]
-  end
+  
+  belongs_to :user
+  has_many :carted_products
+  has_many :products, through: :carted_products
+  
 end

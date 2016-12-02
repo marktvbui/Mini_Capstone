@@ -86,9 +86,11 @@ body {
   max-height: 250px; 
 }
 
-.footer {
-
+footer {
   text-align: center;
+  width: 100%;
+  bottom: 0;
+  clear: both;
 }
 
 img {

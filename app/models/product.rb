@@ -1,6 +1,12 @@
 class Product < ApplicationRecord
   belongs_to :supplier
   has_many :images
+  has_many :orders
+  has_many :productcategories
+  has_many :categories, through: :productcategories
+  
+  has_many :carted_products
+  has_many :orders, through: :carted_products
   
   def pretty_time
     return created_at.strftime("%A, %d %b %Y %l:%M %p")

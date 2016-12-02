@@ -4,9 +4,14 @@ class ProductsController < ApplicationController
   def index
     @page_title = "Game of Thrones Weapons!"
     sort_column = params[:sort]
-    @products = Product.all.order(sort_column)
 
-    # session (hash), stores as a cookie
+      if params[:category]
+        category = Category.find_by(name: params[:category])
+        @products = category.products
+      else
+        @products = Product.all.order(sort_column)
+      end
+
     if session[:count] == nil
       session[:count] = 1
     else
@@ -37,7 +42,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by(id: params[:id])
-    session[:quantity] == params[:quantity]
   end
 
 

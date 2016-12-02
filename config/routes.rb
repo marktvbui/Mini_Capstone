@@ -7,9 +7,6 @@ get "/products", to:"products#index"
 get "/products/new", to:"products#new"
 post "/products", to:"products#create"
 
-get "/products/armor", to: "products#armor"
-get "/products/fanfare", to: "products#fanfare"
-get "/products/weapon", to: "products#weapon"
 
 get "/products/:id/edit", to:"products#edit"
 patch "/products/:id", to:"products#update"
@@ -34,8 +31,13 @@ get "/login", to: "sessions#new"
 post "/login", to: "sessions#create"
 get "/logout", to: "sessions#destroy"
 
-get "/orders/new", to: "orders#new"
 post "/orders", to: "orders#create"
+
+post "/carted_products", to: "carted_products#create"
+
+get "/checkout", to: "carted_products#index"
+delete "/checkout", to: "carted_products#destroy"
+
 
 
 end

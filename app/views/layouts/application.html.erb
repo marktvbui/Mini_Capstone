@@ -29,6 +29,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
+          <% if @carted_products != nil %>
+            <li><a href="/checkout">Shopping Cart</a></li>
+            <% else %>
+            <li><a href="/products" >Shopping Cart</a></li>
+            <% end %>
         <li><a href="/products/new">Create New Items</a></li>
         <li><a href="/logout">Logout</a></li>
         <% else %>
@@ -45,9 +50,11 @@
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="/products/weapon">Weapons</a></li>
-    <li><a href="/products/armor">Armors</a></li>
-    <li><a href="/products/fanfare">Fanfare</a></li>
+    <% Category.all.each do |category| %>
+    <li><a href="/products?category=<%= category.name %>"><%= "#{category.name}" %></a></li>
+  <br>
+  <% end %>
+
     <li role="separator" class="divider"></li>
     <li><a href="https://marktvbui.github.io/index.html">Personal Webpage</a></li>
   </ul>

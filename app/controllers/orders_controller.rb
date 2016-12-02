@@ -5,7 +5,25 @@ class OrdersController < ApplicationController
   end
 
   def create
+
+    if current_user != nil
+        @order = Order.new(user_id: current_user.id)
+        @carted_products = CartedProduct.where(status: "carted")
+          
+          @carted_products.each do |cartproduct| 
+          @order.subtotal = cartproduct.product.price * cartproduct.quantity
+          cartproduct.status = "purchased"
+          cartproduct.save
+          end
+        
+        @order.tax = @order.subtotal * 0.091
+        @order.total = @order.subtotal + @order.tax
+        @order.save
+
+        flash[:success] = "Order purchaed!"
+        redirect_to "/products"  
+    end  
   end
-
-
 end
+
+

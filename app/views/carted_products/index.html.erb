@@ -1,0 +1,28 @@
+<center>
+Checkout Page!
+<br>
+Welcome, <% @current_user %>  
+</center>
+
+<%= form_tag "/checkout", method: :delete do%>
+
+    <% @carted_products.each do |cartedproduct| %>
+    <div>Item name: <%= cartedproduct.product.name %></div>
+    <%= hidden_field_tag :carted_product_id, cartedproduct.product_id %>
+    <div><%= label_tag :quantity, "Quantity :" %>
+         <%= text_field_tag :quantity, cartedproduct.quantity %>
+         <%= submit_tag "Update quantity!" %>
+    </div>
+    <div>Item price: <%= cartedproduct.product.price %></div>
+    <% end %>
+
+<% end %>
+
+
+
+
+  <center>
+    <%= form_tag "/orders", method: :post do %>
+    <%= submit_tag "Buy Now" %>
+  <% end %>
+  </center>
