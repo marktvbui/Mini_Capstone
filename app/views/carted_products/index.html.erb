@@ -1,7 +1,7 @@
 <center>
 Checkout Page!
 <br>
-Welcome, <% @current_user %>  
+Welcome
 </center>
 
 <%= form_tag "/checkout", method: :delete do%>
@@ -17,9 +17,6 @@ Welcome, <% @current_user %>
     <% end %>
 
 <% end %>
-
-
-
 
   <center>
     <%= form_tag "/orders", method: :post do %>
