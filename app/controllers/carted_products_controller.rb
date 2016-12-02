@@ -44,8 +44,8 @@ class CartedProductsController < ApplicationController
        test1.status = "removed"
        test1.save
     end
-    
-    flash[:success] = "Carted updated!"
+
+    flash[:success] = "Cart updated!"
     redirect_to "/checkout"
   end
 
