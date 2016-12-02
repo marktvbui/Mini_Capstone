@@ -33,16 +33,16 @@ class CartedProductsController < ApplicationController
   end
 
   def destroy
-    @carted_products = current_user.carted_products.where(status:"carted")
-    test1 = CartedProduct.find_by(id: params[:carted_product_id])
+    # @carted_products = current_user.carted_products.where(status:"carted")
+    @cartedproducts = CartedProduct.find_by(id: params[:carted_product_id])
 
-    test1.assign_attributes(quantity: params[:quantity])
-    test1.save
+    @cartedproducts.assign_attributes(quantity: params[:quantity])
+    @cartedproducts.save
 
-    if test1.quantity == 0
-       test1.status = "removed"
-       test1.assign_attributes(status: "removed")
-       test1.save
+    if @cartedproducts.quantity == 0
+       @cartedproducts.status = "removed"
+       @cartedproducts.assign_attributes(status: "removed")
+       @cartedproducts.save
     end
 
     flash[:success] = "Cart updated!"
