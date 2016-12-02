@@ -36,7 +36,7 @@ post "/orders", to: "orders#create"
 post "/carted_products", to: "carted_products#create"
 
 get "/checkout", to: "carted_products#index"
-delete "/checkout", to: "carted_products#destroy"
+patch "/checkout", to: "carted_products#update"
 
 end
 

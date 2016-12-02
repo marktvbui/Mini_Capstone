@@ -32,18 +32,23 @@ class CartedProductsController < ApplicationController
     @carted_products = current_user.carted_products.where(status:"carted")
   end
 
-  def destroy
-    # @carted_products = current_user.carted_products.where(status:"carted")
+  def update
+    @carted_products = current_user.carted_products.where(status:"carted")
     @cartedproducts = CartedProduct.find_by(id: params[:carted_product_id])
 
-    @cartedproducts.assign_attributes(quantity: params[:quantity])
-    @cartedproducts.save
+    # @cartedproducts.assign_attributes(quantity: params[:quantity].to_i)
+    # @cartedproducts.save
 
-    if @cartedproducts.quantity == 0
-       @cartedproducts.status = "removed"
-       @cartedproducts.assign_attributes(status: "removed")
-       @cartedproducts.save
-    end
+    # if @cartedproducts.quantity == 0
+    #    @cartedproducts.status = "removed"
+    #    @cartedproducts.assign_attributes(status: "removed")
+    #    @cartedproducts.save
+    # end
+
+
+    @cartedproducts.assign_attributes(quantity: params[:quantity])
+    @cartedproducts.status = "removed" if params[:quantity] == 0
+    @cartedproducts.save
 
     flash[:success] = "Cart updated!"
     redirect_to "/checkout"
