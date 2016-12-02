@@ -41,6 +41,7 @@ class CartedProductsController < ApplicationController
 
     if test1.quantity == 0
        test1.status = "removed"
+       test1.assign_attributes(status: "removed")
        test1.save
     end
 

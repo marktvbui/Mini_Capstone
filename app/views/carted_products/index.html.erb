@@ -4,7 +4,7 @@ Checkout Page!
 Welcome
 </center>
 
-<%= form_tag "/checkout", method: :delete do%>
+<%= form_tag "/checkout", method: :patch do%>
 
     <% @carted_products.each do |cartedproduct| %>
     <div>Item name: <%= cartedproduct.product.name %></div>
