@@ -9,7 +9,7 @@ Welcome
     <% @carted_products.each do |cartedproduct| %>
     <center>
     <div>Item name: <%= cartedproduct.product.name %></div>
-    <%= hidden_field_tag :carted_product_id, cartedproduct.product_id %>
+    <%= hidden_field_tag :carted_product_id, cartedproduct.id %>
     <div><%= image_tag cartedproduct.product.images.first.url %></div>
     <div><%= label_tag :quantity, "Quantity :" %>
          <%= text_field_tag :quantity, cartedproduct.quantity %>
