@@ -4,4 +4,9 @@ class CartedProduct < ApplicationRecord
   belongs_to :user
   belongs_to :product
   
+
+  def subtotal
+    quantity * product.price.to_f
+  end
+
 end

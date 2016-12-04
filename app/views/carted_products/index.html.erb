@@ -14,6 +14,7 @@ Welcome
     <div><%= label_tag :quantity, "Quantity :" %>
          <%= text_field_tag :quantity, cartedproduct.quantity %>
          <%= submit_tag "Update quantity!" %>
+    <%= link_to "remove", "carted_products/delete/#{carted_product.id}" %>
     </div>
     <div>Item price: <%= cartedproduct.product.price %></div>
     <br>

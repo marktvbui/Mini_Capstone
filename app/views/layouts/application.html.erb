@@ -30,7 +30,7 @@
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
           <% if @carted_products != nil %>
-            <li><a href="/checkout">Shopping Cart</a></li>
+            <li><a href="/checkout">Shopping Cart (<%= @cart_count %>)</a></li>
             <% else %>
             <li><a href="/products" >Shopping Cart</a></li>
             <% end %>

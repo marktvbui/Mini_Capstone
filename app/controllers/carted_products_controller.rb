@@ -1,10 +1,8 @@
 class CartedProductsController < ApplicationController
 
   def create
-      # session[:quantity] = params[:quantity]
-      # @purchase_quantity = session[:quantity]
+       
       if current_user
-        # @product = Product.find_by(id: params[:product_id])
          @order = Order.new(user_id: current_user.id)
          @order.save
 
@@ -14,18 +12,22 @@ class CartedProductsController < ApplicationController
         else 
           @carted_products = CartedProduct.update(quantity: params[:quantity], product_id: params[:product_id], user_id: current_user.id, status: "carted", order_id: @order.id)
         end
-        
-        # @order.subtotal = @product.price * @order.quantity
-        # @order.tax = @order.subtotal * 0.091
-        # @order.total = @order.subtotal + @order.tax
-        # @order.save
-        
 
-          redirect_to "/checkout"
+        redirect_to "/checkout"
       else
         flash[:error] = "Log in, idiot!"
         redirect_to "/login"
       end  
+
+
+
+      #Danish's version
+      # def create
+      # carted_product = CartedProduct.new(product_id: params[:product_id], user_id: current_user.id, quantity: params[:quantity].to_i, status: "carted")
+      # carted_product.save
+      # redirect_to "/carted_products"
+      # end
+
   end
 
   def index 
@@ -35,13 +37,11 @@ class CartedProductsController < ApplicationController
   def update
     @carted_products = current_user.carted_products.where(status:"carted")
     @cartedproducts = CartedProduct.find_by(id: params[:carted_product_id])
-
     @cartedproducts.assign_attributes(quantity: params[:quantity].to_i)
     @cartedproducts.save
 
     if @cartedproducts.quantity == 0
        @cartedproducts.status = "removed"
-       # @cartedproducts.assign_attributes(status: "removed")
        @cartedproducts.save
     end
 
@@ -53,6 +53,16 @@ class CartedProductsController < ApplicationController
     flash[:success] = "Cart updated!"
     redirect_to "/checkout"
   end
+
+  def destroy
+  carted_product = CartedProduct.find_by(id: params[:id])
+  carted_product.assign_attributes(status: "removed")
+  carted_product.save
+
+  flash[:success] = "Product removed"
+  redirect_to "/carted_products"
+  end
+
 
 end  
 

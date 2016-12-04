@@ -49,27 +49,27 @@
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
-<%= form_tag "/carted_products", method: :post do %>
-<div>
-  <%= label_tag :quantity %>
-  <%= text_field_tag :quantity %>
-  <%= hidden_field_tag :product_id, @product.id %>
-</div>
-<div>
-<%= submit_tag "Add to Cart" %>
-</div>
-<% end %>
 
+  </div>
+  <%= form_tag "/carted_products", method: :post do %>
+  <div>
+    <%= label_tag :quantity %>
+    <%= text_field_tag :quantity %>
+    <%= hidden_field_tag :product_id, @product.id %>
+  </div>
+  <div>
+  <%= submit_tag "Add to Cart" %>
+  </div>
+  <% end %>
 
-<div>
-  <%= link_to "Edit Product", "/products/#{@product.id}/edit" %>
-</div>
-
-
-<div>
-  <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete %>
-</div>
-
+  <% if current_user.admin %>
+  <div>
+    <%= link_to "Edit Product", "/products/#{@product.id}/edit" %>
+  </div>
+  <div>
+    <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete %>
+  </div>
+  <% end %>
+  
 <h6> Added: <%= @product.pretty_time %></h6>
 
