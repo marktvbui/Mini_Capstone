@@ -31,15 +31,15 @@ get "/login", to: "sessions#new"
 post "/login", to: "sessions#create"
 get "/logout", to: "sessions#destroy"
 
+get "/carted_products/delete/:id", to: 'carted_products#destroy'
+post "/carted_products", to: "carted_products#create"
+get "/carted_products", to: "carted_products#index"
+
 get "/orders/:id", to: "orders#show"
 post "/orders", to: "orders#create"
 
-get "/carted_products", to: "carted_products#index"
-post "/carted_products", to: "carted_products#create"
-
-get "/checkout", to: "carted_products#index"
-patch "/checkout", to: "carted_products#update"
-get "/carted_products/delete/:id", to: 'carted_products#destroy'
+# get "/checkout", to: "carted_products#index"
+patch "/carted_products", to: "carted_products#update"
 
 end
 

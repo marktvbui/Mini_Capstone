@@ -1,20 +1,22 @@
 <center>
 Checkout Page!
 <br>
-Welcome
+Welcome <% current_user.name %>
 </center>
 
-<%= form_tag "/checkout", method: :patch do%>
+<%= form_tag "/carted_products", method: :post do%>
 
-    <% @carted_products.each do |cartedproduct| %>
+    <% @carted_products.each do |carted_product| %>
+      <h2><%= carted_product.product.name %></h2>
+      <h6><%= carted_product.quantity %></h6>
     <center>
-    <div>Item name: <%= cartedproduct.product.name %></div>
-    <%= hidden_field_tag :carted_product_id, cartedproduct.id %>
-    <div><%= image_tag cartedproduct.product.images.first.url %></div>
+    <div>Item name: <%= carted_product.product.name %></div>
+    <%= hidden_field_tag :carted_product_id, carted_product.id %>
+    <div><%= image_tag carted_product.product.images.first.url %></div>
     <div><%= label_tag :quantity, "Quantity :" %>
-         <%= text_field_tag :quantity, cartedproduct.quantity %>
+         <%= text_field_tag :quantity, carted_product.quantity %>
          <%= submit_tag "Update quantity!" %>
-    <%= link_to "remove", "carted_products/delete/#{carted_product.id}" %>
+    <%= link_to "remove", "/carted_products/delete/#{carted_product.id}" %>
     </div>
     <div>Item price: <%= cartedproduct.product.price %></div>
     <br>

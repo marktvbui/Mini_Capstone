@@ -1,20 +1,15 @@
-
 <div id="myCarousel" class="carousel slide carousel_size" data-ride="carousel" data-pause="hover">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-    <li data-target="#myCarousel" data-slide-to="4"></li>
-    <li data-target="#myCarousel" data-slide-to="5"></li>
-    <li data-target="#myCarousel" data-slide-to="6"></li>
+    <% 8.times do |x| %>
+      <li data-target="#myCarousel" data-slide-to="x" class="active"></li>
+    <% end %>
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-   <!--  iron throne image -->
+    <!--  iron throne image -->
       <img src="http://wallpapercave.com/wp/qzUbSBS.jpg" alt=":)">
     </div>
   <!--   targaryen sigil -->
@@ -26,7 +21,7 @@
       <img src="http://wallpapercave.com/wp/LhI847L.jpg" alt=":)">
     </div>
     <!-- Lannister sigil -->
-    <div class="item"> 
+    <div class="item">
       <img src="https://www.walldevil.com/wallpapers/w04/136909-game-of-thrones-house-lannister-tv-series.jpg" alt=":)">
     </div>
       <!-- Greyjoy Sigil -->
@@ -68,8 +63,6 @@
   <br>
   <%= link_to "Sort by Name", "/products?sort=name" %>
 
-  
-
   <center>
   <%= form_tag "/search", method: :post do %>
     <%= label_tag :search %>
@@ -89,8 +82,9 @@
            <div class="name"><%= link_to product.name, "/products/#{product.id}/edit" %></div>
           <div class="description"><%= product.description %></div>
           <div class="price">$<%= product.price %></div>
-          <%= image_tag product.images.first.url, class: "img-class" %>      
-           <a href="/products/<%= product.id %>"> <img src="http://brandonmull.com/site/wp-content/uploads/2015/09/flaming-sword.png" class="img-responsive" alt="Responsive image"></a>
+          <%= image_tag product.images.first.url, class: "img-class" %>
+           <figure>
+           <a href="/products/<%= product.id %>"><img src="https://thumbs.dreamstime.com/t/flaming-glass-sword-object-fire-isolated-black-background-34879614.jpg" class="img-responsive" alt="Responsive image"></a><figcaption>Click Flaming Sword to Buy Now</figcaption></figure>
            </div>
 
       </div>

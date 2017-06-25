@@ -35,7 +35,6 @@ body {
   padding: 30px;
   font-family: 'Droid Serif', serif;
   background-image: url(psychedelic_pattern.png)
-  
 }
 
 
@@ -48,10 +47,10 @@ body {
 
 .subtitle {
   background-color: black;
-  color: #0099cc;
+  color: #800000;
   font-size: 45px;
   text-align: center;
-  border-width:5px;  
+  border-width:5px;
   border-style:groove;
   border-color: #0099cc;
   margin-left: 5px;
@@ -65,7 +64,7 @@ body {
 }
 
 .price {
-  color: #ff6699;
+  color: #800000;
   font-size: 30px;
   text-align: center;
 }
@@ -74,7 +73,6 @@ body {
   color: #66ff66;
   font-size: 30px;
   text-align: center;
-  
 }
 
 .img-class {
@@ -83,7 +81,7 @@ body {
   display: block;
   margin: auto;
   min-height: 250px;
-  max-height: 250px; 
+  max-height: 250px;
 }
 
 footer {
@@ -94,7 +92,6 @@ footer {
 }
 
 img {
-   
   height: auto;
   width: auto;
   display: block;
@@ -102,11 +99,15 @@ img {
   max-height: 350px;
 
 }
-  
+
 .well {
   border: solid;
   border-color: #0099cc;
+  background-color: black;
 }
 
 
-
+figcaption {
+  text-align: center;
+  color: red;
+}

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :curent_user_admin, only: [:new, :create, :edit, :update, :destroy]
+  before_action :current_user_admin, only: [:new, :create, :edit, :update, :destroy]
   
   def index
     @page_title = "Game of Thrones Weapons!"
@@ -15,15 +15,16 @@ class ProductsController < ApplicationController
 
     if session[:count] == nil
       session[:count] = 1
-    else
+    else 
       session[:count] += 1
     end
     @session_counter = session[:count]
+    
   end
 
   
   def new
-   
+    @products = Product.new
   end
 
   def create
@@ -32,12 +33,17 @@ class ProductsController < ApplicationController
       price: params[:item_price],
       description: params[:description],
       instock: params[:instock],
-      item_class: params[:item_class],
       supplier_id: params[:supplier_id]
       )
-    @products.save
-    flash[:success] = "Product has been created"
-    redirect_to "/products/"
+    if @products.save
+      flash[:success] = "Product has been created"
+      redirect_to "/products/#{@product.id}"
+    else
+      # need this for if loop in view @products.errors.full_messages.each do |message|
+      flash[:danger] = @products.errors.full_messages.join("<br>").html_safe
+    # end
+      render :new
+    end
 
   end
 
@@ -57,12 +63,15 @@ class ProductsController < ApplicationController
       price: params[:item_price], 
       description: params[:description], 
       instock: params[:instock], 
-      item_class: params[:item_class], 
       supplier_id: params[:supplier_id]
       )
-    product.save
-    flash[:success] = "Product has been updated"
-    redirect_to "/products/"
+    if product.save
+      flash[:success] = "Product has been updated"
+      redirect_to "/products/"
+    else
+      flash[:danger] = "No empty fields idiot!"
+      render :new
+    end
   end
 
   def contact
@@ -91,5 +100,3 @@ class ProductsController < ApplicationController
 
 
 end
-
-  

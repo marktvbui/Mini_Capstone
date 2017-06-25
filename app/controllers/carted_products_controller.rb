@@ -13,20 +13,18 @@ class CartedProductsController < ApplicationController
           @carted_products = CartedProduct.update(quantity: params[:quantity], product_id: params[:product_id], user_id: current_user.id, status: "carted", order_id: @order.id)
         end
 
-        redirect_to "/checkout"
+        redirect_to "/carted_products"
       else
         flash[:error] = "Log in, idiot!"
         redirect_to "/login"
       end  
 
-
-
       #Danish's version
-      # def create
-      # carted_product = CartedProduct.new(product_id: params[:product_id], user_id: current_user.id, quantity: params[:quantity].to_i, status: "carted")
+      # carted_product = CartedProduct.new(product_id: params[:product_id],                                user_id: current_user.id, 
+      #                                   quantity: params[:quantity].to_i, 
+      #                                   status: "carted")
       # carted_product.save
       # redirect_to "/carted_products"
-      # end
 
   end
 
@@ -36,22 +34,21 @@ class CartedProductsController < ApplicationController
 
   def update
     @carted_products = current_user.carted_products.where(status:"carted")
-    @cartedproducts = CartedProduct.find_by(id: params[:carted_product_id])
-    @cartedproducts.assign_attributes(quantity: params[:quantity].to_i)
-    @cartedproducts.save
+    # @carted_products = CartedProduct.find_by(id: params[:carted_product_id])
+    @carted_products.assign_attributes(quantity: params[:quantity].to_i)
+    @carted_products.save
 
-    if @cartedproducts.quantity == 0
-       @cartedproducts.status = "removed"
-       @cartedproducts.save
+    if @carted_products.quantity == 0
+       @carted_products.status = "removed"
+       @carted_products.save
     end
 
-
-    # @cartedproducts.assign_attributes(quantity: params[:quantity])
-    # @cartedproduct.status = "removed" if params[:quantity] == 0
-    # @cartedproducts.save
+    @carted_products.assign_attributes(quantity: params[:quantity])
+    @carted_product.status = "removed" if params[:quantity] == 0
+    @carted_products.save
 
     flash[:success] = "Cart updated!"
-    redirect_to "/checkout"
+    redirect_to "/carted_products"
   end
 
   def destroy

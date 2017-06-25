@@ -1,78 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>MiniCapstone</title>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head><!--/head-->
 
-  <body>
+<body class="homepage">
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/products">Home</a>
-    </div>
+    <header id="header">
+    </header><!--/header-->
 
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-      <% if current_user %>
-          <% if @carted_products != nil %>
-            <li><a href="/checkout">Shopping Cart (<%= @cart_count %>)</a></li>
-            <% else %>
-            <li><a href="/products" >Shopping Cart</a></li>
-            <% end %>
-        <li><a href="/products/new">Create New Items</a></li>
-        <li><a href="/logout">Logout</a></li>
-        <% else %>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Sign Up!</a></li>
-        <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-
-  <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Categories
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <% Category.all.each do |category| %>
-    <li><a href="/products?category=<%= category.name %>"><%= "#{category.name}" %></a></li>
-  <br>
-  <% end %>
-
-    <li role="separator" class="divider"></li>
-    <li><a href="https://marktvbui.github.io/index.html">Personal Webpage</a></li>
-  </ul>
-</div>
-
-</nav>
-
-
-
-  <div class="container">
-
-   <% flash.each do |name, message| %>
+  <% flash.each do |name, message| %>
    <div class="alert alert-<%= name %> alert-dismissable"  role="alert">
    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <p> <%= message %> </p>
    </div>
    <% end %>
+    <%= yield %>
 
-  <%= yield %>
-  </div>
-  </body>
+</body>
 </html>

@@ -18,6 +18,8 @@
   <div class="name"><%= @product.name %></div>  
 
 
+
+
 <div id="myCarousel" class="carousel slide carousel_size" data-ride="carousel" data-pause="hover">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -31,13 +33,9 @@
   <div class="carousel-inner" role="listbox">
     <% @product.images.each_with_index do |image, i| %>
     <div class="<%= i == 0 ? 'item active' : 'item' %>">
-    <!--   <center> -->
-        <img src=<%= image.url %> class: "img-class" alt=":)">
-     <!--  </center> -->
+      <img src=<%= image.url %> class: "img-class" alt=":)">
     </div>
     <% end %>
- 
-   
   </div>
 
   <!-- Left and right controls -->
@@ -50,7 +48,8 @@
     <span class="sr-only">Next</span>
   </a>
 
-  </div>
+</div>
+
   <%= form_tag "/carted_products", method: :post do %>
   <div>
     <%= label_tag :quantity %>

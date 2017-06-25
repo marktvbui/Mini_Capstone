@@ -6,14 +6,14 @@ class OrdersController < ApplicationController
 
   def create
     # constance, dont have to set sales_tax everywhere, can just set it once: SALES_TAX = 0.091
-
+    # user = User.find_by(id: current_user.id)
     @carted_products = current_user.carted_products.where(status: "carted")
      
-    @order = Order.create(user_id: current_user.id)
+    order = Order.create(user_id: current_user.id)
     @carted_products.update_all(status: "purchased", order_id: order.id)
-    order.calculate_totals
+    @order.calculate_totals
 
-    flash[:success] = "Order purchaed!"
+    flash[:success] = "Order purchased!"
     redirect_to "/orders/#{order.id}"  
      
 
